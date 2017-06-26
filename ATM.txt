@@ -1,0 +1,81 @@
+import java.util.*;
+class ATM {
+
+    public static void main(String args[]) {
+        Scanner scan = new Scanner(System.in);
+        int j = 1, d=0;
+        for(int i=10;i>=j;i++) {
+
+        System.out.println("ENTER 1 FOR Deposit ");
+        System.out.println("ENTER 2 FOR Withdrawal ");
+        System.out.println("ENTER 3 FOR Check balance ");
+        System.out.println("ENTER 5 FOR EXIT ");
+
+        List MD = new List();
+        int x = scan.nextInt();
+
+            if (x == 1) {
+                try {
+                    MD.d_money();;
+                } catch (Exception e){ System.out.println("Error Money not enough \n"+e.getMessage () );}
+                i=j;
+            }
+            else if (x == 2) {
+                try {
+                    MD.w_money();
+                } catch (Exception e){ System.out.println("Error Money not enough \n"+e.getMessage () );}
+                i=j;
+            }
+            else if (x == 3) {
+                System.out.println("Balance "+MD.getMoney());
+                i=j;
+            }
+            else if (x == 5) {
+                j=9;
+            }
+         System.out.println(".................................................................................");
+        }
+    }
+}
+
+class List {
+    static int money = 0;
+    static int Balance=0;
+
+
+    int d_money() {
+        System.out.print("Deposit :");
+        Scanner scan = new Scanner(System.in);
+        money = scan.nextInt();
+        if(money < 0) {
+            System.out.println("!!! Unable to perform list !!!" );
+        }
+        else {
+            Balance = Balance + money;
+            System.out.println("Your money :" + Balance);
+        }
+        return Balance;
+    }
+
+    int w_money() {
+        System.out.print("Withdrawal :");
+        Scanner scan = new Scanner(System.in);
+        money = scan.nextInt();
+        Balance = Balance - money;
+        if(Balance < 0){
+            System.out.println("!!! Money not enough !!!" );
+        }
+        else if(money < 0) {
+            System.out.println("!!! Unable to perform list !!!" );
+        }
+        else {
+            System.out.println("Balance :" + Balance);
+        }
+        return Balance;
+    }
+
+    int getMoney(){
+        return Balance;
+    }
+}
+
